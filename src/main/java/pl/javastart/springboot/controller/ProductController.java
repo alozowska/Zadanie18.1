@@ -18,18 +18,23 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
-    @GetMapping
-    public InfoProducts getAllProducts() {
-        return productRepository.allProducts();
+//    @GetMapping("/lista")
+//    public InfoProducts getAllProducts() {
+//        return productRepository.allProducts();
+//    }
+
+    @GetMapping(value = "/lista")
+    public InfoProducts getAllProductsFromCategory(@RequestParam(value = "kategoria", required = false)String category) {
+        if (category != null) {
+
+            return productRepository.findByCategory(category);
+        } else
+            return productRepository.allProducts();
     }
 
-    @GetMapping(value = "/{category}")
-    public InfoProducts getAllProductsFromCategory(@PathVariable(value = "category")String category){
-        return productRepository.findByCategory(category);
-    }
-
-    @PostMapping
+    @PostMapping("/abc")
     public Product saveProduct(@RequestBody Product product) {
+
         return productRepository.save(product);
     }
 }

@@ -2,7 +2,7 @@ package pl.javastart.springboot.entity;
 
 public enum CategoryProduct {
 
-    SPOZYWCZY, //
+    SPOZYWCZE, //
     DOMOWE, //
     INNE //
 }

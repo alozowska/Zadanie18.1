@@ -46,7 +46,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     private static void prepareData() {
         products = new ArrayList<>();
-        Product product1 = new Product("mleko", 2.5, CategoryProduct.SPOZYWCZY);
+        Product product1 = new Product("mleko", 2.5, CategoryProduct.SPOZYWCZE);
         Product product2 = new Product("doniczka", 3, CategoryProduct.DOMOWE);
         Product product3 = new Product("skarpetki", 4.6, CategoryProduct.INNE);
 
