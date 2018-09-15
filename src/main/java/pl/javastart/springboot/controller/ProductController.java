@@ -2,6 +2,7 @@ package pl.javastart.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.javastart.springboot.entity.CategoryProduct;
 import pl.javastart.springboot.entity.InfoProducts;
 import pl.javastart.springboot.entity.Product;
 import pl.javastart.springboot.repository.ProductRepository;
@@ -32,9 +33,9 @@ public class ProductController {
             return productRepository.allProducts();
     }
 
-    @PostMapping("/abc")
-    public Product saveProduct(@RequestBody Product product) {
-
-        return productRepository.save(product);
-    }
+    @GetMapping  ("/add")
+    public String addProduct(@RequestBody Product product) {
+Product product=new Product();
+ return "dodawanie"; //to jest źle! 
+   }
 }
