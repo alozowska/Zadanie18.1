@@ -5,4 +5,5 @@ public enum CategoryProduct {
     SPOZYWCZE, //
     DOMOWE, //
     INNE //
+
 }

@@ -7,10 +7,16 @@
 <body>
 <h1>Dodawanie produktu</h1>
 <form action="/add" method="post">
-    Nazwa:<input type="tekst" name="name"/>
+    Nazwa:<input type="text" name="name"/>
     Cena:<input type="number" name="price"/>
-    Kategoria:<input type="text" name="category"/>
-    <input type="submit" value="dodaj" />
+    Kategoria:
+    <select required name="category">
+        <option value="" disabled selected="selected">Kategoria...</option>
+        <option value="SPOZYWCZE">SPOZYWCZE</option>
+        <option value="DOMOWE">DOMOWE</option>
+        <option value="INNE">INNE</option>
+    </select>
+    <input type="submit" value="dodaj"/>
 </form>
 </body>
 </html>
