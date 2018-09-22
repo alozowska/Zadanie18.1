@@ -1,7 +1,14 @@
 package pl.javastart.springboot.controller;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import pl.javastart.springboot.entity.CategoryProduct;
 import pl.javastart.springboot.entity.InfoProducts;
 import pl.javastart.springboot.entity.Product;
@@ -19,11 +26,6 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
-//    @GetMapping("/lista")
-//    public InfoProducts getAllProducts() {
-//        return productRepository.allProducts();
-//    }
-
     @GetMapping(value = "/lista")
     public InfoProducts getAllProductsFromCategory(@RequestParam(value = "kategoria", required = false)String category) {
         if (category != null) {
@@ -33,9 +35,19 @@ public class ProductController {
             return productRepository.allProducts();
     }
 
-    @GetMapping  ("/add")
-    public String addProduct(@RequestBody Product product) {
-Product product=new Product();
- return "dodawanie"; //to jest źle! 
+    @RequestMapping(value = "/add")
+    public String addProduct(@RequestParam String name,
+                             @RequestParam double price,
+                             @RequestParam CategoryProduct categoryProduct) {
+
+      //  Product product = new Product(name, price, categoryProduct);
+        return "dodawanie.html";
+    }
+
+        @PostMapping("/add")
+
+    public Product saveProduct(@RequestBody Product product) {
+
+        return productRepository.save(product);
    }
 }
